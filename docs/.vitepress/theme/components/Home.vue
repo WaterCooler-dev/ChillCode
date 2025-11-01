@@ -2,11 +2,11 @@
     <div class="flex flex-col justify-center min-h-[calc(100vh-120px)]">
         <img :src="isDark ? '/img/ChillCode.svg' : '/img/ChillCode_Light.svg'" alt="Chillcode Logo" class="w-60 mb-7">
         <div class="hack text-7xl mb-7">
-            A programing blog <br>make learning code<br></br>
-            <span class="gradient-text" ref="text"></span>
+            A programing blog <br>for writing<br></br>
+            <span class="gradient-text" ref="text"></span>code
         </div>
         <div class="text-2xl mb-7">
-            코드를 쉽고 명확히 배우기 위한 프로그래밍 블로그
+            칠한 코드를 위한 프로그래밍 블로그
         </div>
         <div class="flex flex-row gap-5">
             <button class="rounded-full pl-7 pr-7 pt-3 pb-3 button-main hover"
@@ -89,7 +89,7 @@
 
     // gsap 에니메이션
     const text = ref(null)
-    const words = ["very chill", "clear and easy"]
+    const words = ["chill", "clear", "awesome", "non-spaghetti"]
     let i = 0
     let timeline
 
