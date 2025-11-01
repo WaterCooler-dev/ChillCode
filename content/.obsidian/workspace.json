@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "typescript/typescripts-class.md",
+                "file": "typescript/typescripts-class-abstract.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "typescripts-class"
+              "title": "typescripts-class-abstract"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "about.md",
+                "file": "typescript/typescripts-class-etc.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "about"
+              "title": "typescripts-class-etc"
             }
           }
         ],
@@ -187,11 +187,12 @@
   "active": "4e8ba62b966c630e",
   "lastOpenFiles": [
     "typescript/typescripts-class-abstract.md",
+    "typescript/typescripts-class-etc.md",
     "typescript/typescripts-class.md",
+    "about.md",
     "typescript/compile-typescript.md",
     "typescript/typescripts-class-access-identifier.md",
     "typescript/what-is-typescript.md",
-    "about.md",
     "index.md",
     "typescript/type-aliases-and-interfaces.md",
     "무제.base",
