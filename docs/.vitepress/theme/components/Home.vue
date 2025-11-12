@@ -61,7 +61,7 @@
     }
 </style>
 
-<script setup>
+<script setup lang="ts">
     import { useRouter } from 'vitepress';
     import { ref, onMounted, onBeforeUnmount, onUnmounted } from 'vue'
     import gsap from 'gsap';
@@ -72,7 +72,7 @@
 
     // 다크모드 감지
     const isDark = ref(document.documentElement.classList.contains('dark'))
-    let observer
+    let observer: MutationObserver
     onMounted(() => {
     observer = new MutationObserver(() => {
         isDark.value = document.documentElement.classList.contains('dark')
@@ -88,25 +88,43 @@
     })
 
     // gsap 에니메이션
-    const text = ref(null)
-    const words = ["chill", "clear", "awesome", "non-spaghetti"]
-    let i = 0
-    let timeline
+    const text = ref(null);
+    const words = ["chill", "clear", "awesome", "non-spaghetti"];
+    let i = 0;
+    let currentTween: gsap.core.Tween | null = null; 
 
     const typeNext = () => {
-        const w = words[i]
-        timeline = gsap.to(text.value, { duration: w.length * 0.1, text: w, ease: "none" })
-            .then(() => gsap.delayedCall(5, () =>
-            gsap.to(text.value, { duration: w.length * 0.05, text: "", ease: "none" })
-                .then(() => { i = (i + 1) % words.length; typeNext() })
-            ))
-    }
+        const w = words[i];
+
+        if (currentTween) {
+            currentTween.kill();
+        }
+
+        currentTween = gsap.to(text.value, { 
+            duration: w.length * 0.1, 
+            text: w, 
+            ease: "none",
+            onComplete: () => {
+                gsap.delayedCall(5, () => {
+                    currentTween = gsap.to(text.value, { 
+                        duration: w.length * 0.05, 
+                        text: "", 
+                        ease: "none",
+                        onComplete: () => {
+                            i = (i + 1) % words.length; 
+                            typeNext();
+                        }
+                    });
+                });
+            }
+        });
+    };
 
     onMounted(() => {
-        typeNext()
-    })
+        typeNext();
+    });
 
     onUnmounted(() => {
-        timeline?.kill()
-    })
+        currentTween?.kill(); 
+    });
 </script>

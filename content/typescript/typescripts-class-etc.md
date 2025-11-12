@@ -104,8 +104,6 @@ class Class {
 }
 ```
 
-*(제 생각이지만, 코드에서 사용하는 유틸리티를 만들때 좋을 것 같습니다.)*
-
 예를 들어볼까요? 여기 `string`을 다룰수 있는 여러 기능들을 제공하는 `StringUtil`이라는 클래스가 있습니다:
 
 ```typescript
@@ -120,10 +118,10 @@ class StringUtil {
 		}
 		return -1;
 	}
-}
+} // 일단 지금은 하나밖에 없어요
 ```
 
-만약 이 기능을 사용하고 싶으면, 객체를 만들어야 합니다.
+만약 `StringUtil`의 기능을 사용하고 싶으면, 객체를 만들어야 합니다.
 
 ```typescript
 const util = new StringUtil();
