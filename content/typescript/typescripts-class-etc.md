@@ -69,7 +69,7 @@ class Employee {
 	}
 	
 	set name(value: string): string {
-		if (value.length > 5) { trow new Error("이름이 너무 김!"); }
+		if (value.length > 5) { throw new Error("이름이 너무 김!"); }
 		this.name = value;
 	}
 }
